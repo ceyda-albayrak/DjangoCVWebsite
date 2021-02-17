@@ -4,7 +4,7 @@ from phone_field import PhoneField
 # Create your models here.
 class CV(models.Model):
     image=models.ImageField(null=True, blank=True)
-    name=models.ForeignKey('auth.User',on_delete=models.CASCADE)
+    name=models.CharField(max_length=100,verbose_name="İsim")
     surname=models.CharField(max_length=100,verbose_name="Soyisim")
     placeofbirth=models.CharField(max_length=100,verbose_name="Doğum Yeri")
     dateofbirth=models.DateField(verbose_name="Doğum Tarihi")

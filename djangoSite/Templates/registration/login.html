@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form method="POST" class="m-5">
+    <h1>Giriş Yap</h1>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Giriş Yap</button>
+</form>
+{% endblock content %}
+    
