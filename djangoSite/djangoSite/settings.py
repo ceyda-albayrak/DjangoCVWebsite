@@ -129,3 +129,10 @@ STATICFILES_DIRS=[BASE_DIR/ 'Static',]
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST='smtp.sendgrid.net'
+EMAIL_HOST_USER='apikey'
+EMAIL_HOST_PASSWORD='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'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True

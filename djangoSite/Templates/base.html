@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="en" style="background-color: #f2ecff">
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -40,7 +40,7 @@
                   {{user.username}}
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#">Parolayı Değiştir</a></li>
+                  <li><a class="dropdown-item" href="{% url 'password_reset' %}">Parolayı Değiştir</a></li>
                   <li><a class="dropdown-item" href="{% url 'logout' %}">Çıkış Yap</a></li>
                   
                 </ul>

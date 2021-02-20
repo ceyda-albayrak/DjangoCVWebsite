@@ -3,10 +3,11 @@
 {% block content %}
 
 <form method="POST" class="m-5">
-    <h1>Giriş Yap</h1>
+    <h1 class="text-center">Giriş Yap</h1>
     {% csrf_token %}
     {{ form|crispy }}
     <button type="submit" class="btn btn-success">Giriş Yap</button>
+    <a style="margin-left: 80%;" href="">Şifremi Unuttum</a>
 </form>
 {% endblock content %}
     
