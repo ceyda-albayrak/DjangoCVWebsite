@@ -32,12 +32,15 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'djangoSite',
-    'Accounts.apps.AccountsConfig',
-    'Blogs.apps.BlogsConfig',
-    'News.apps.NewsConfig',
-    'CurriculumVitae.apps.CurriculumvitaeConfig',
+    'Accounts',
+    'Blogs',
+    'News',
+    'CurriculumVitae',
     'phone_field',
     'crispy_forms',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'API',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -108,6 +111,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Authentication
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        'rest_framework.authentication.TokenAuthentication',
+# for browsable api view usage
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -130,9 +147,10 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
 EMAIL_HOST='smtp.sendgrid.net'
 EMAIL_HOST_USER='apikey'
-EMAIL_HOST_PASSWORD='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'
+EMAIL_HOST_PASSWORD='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'
 EMAIL_PORT=587
 EMAIL_USE_TLS=True
+
+APPEND_SLASH=False

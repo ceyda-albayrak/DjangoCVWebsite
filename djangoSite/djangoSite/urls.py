@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf.urls import url
+from django.contrib import admin
+from rest_framework.urlpatterns import format_suffix_patterns
 
 
 
 
 urlpatterns = [
-    
     path('admin/', admin.site.urls),
     path('accounts/', include('Accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('',include('News.urls')),
-  
-   
+    path('api/',include('API.urls')),
 ]
+urlpatterns = format_suffix_patterns(urlpatterns)

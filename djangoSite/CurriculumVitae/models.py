@@ -1,5 +1,7 @@
 from django.db import models
 from phone_field import PhoneField
+from django.contrib.auth import get_user_model
+from django.urls import reverse
 
 # Create your models here.
 class CV(models.Model):
@@ -32,3 +34,6 @@ class CV(models.Model):
 
     def __str__(self):
         return self.name+self.surname
+
+    def get_user_model (self):
+        return reverse('cv.detail',args=[str(self.id)])
