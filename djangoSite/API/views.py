@@ -3,27 +3,32 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from Blogs.models import Blog
-from .serializers import BlogSerializer
+from .serializers import BlogSerializer,MyTokenObtainPairSerializer
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated,AllowAny
 from rest_framework.views import APIView
-# Create your views here.
+from rest_framework import generics
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
-
-for user in User.objects.all():
-    token=Token.objects.get_or_create(user=user)
-    print(token)
-class ExampleView(APIView):
+from rest_framework_simplejwt.views import TokenObtainPairView
+from API.serializers import RegisterSerializer
+class LoginView(APIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
 
-    def get(self, request, format=None):
-        content = {
-            'user': unicode(request.user),  # `django.contrib.auth.User` instance.
-            'auth': unicode(request.auth),  # None
-        }
-        return Response(content)
+    def get(self, request):
+        message = {"foo": "bar"}
+        return Response(data=message, status=status.HTTP_200_OK)
+
+class MyObtainTokenPairView(TokenObtainPairView):
+    permission_classes = (AllowAny,)
+    serializer_class = MyTokenObtainPairSerializer
+
+class RegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    permission_classes = (AllowAny,)
+    serializer_class = RegisterSerializer
+  
 
 @api_view(['GET', 'POST'])
 def blog_list(request):
@@ -48,7 +53,7 @@ def blog_detail(request, pk):
     """
     try:
         blog = Blog.objects.get(pk=pk)
-    except Snippet.DoesNotExist:
+    except Blog.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
