@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load static %}
 {% block content %}
 
-  
-  <form method="post" class="m-5">
-    <h2>Sign up</h2>
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-success">Kaydol</button>
-  </form>
+<body style="background:url({% static 'Images/black-texture.jpg' %})">
+  <div class="title mb-3" style="margin-top: 1%;">
+<h1 class="text-center" style="color: white;">KAYIT OL</h1></div>
+<form method="POST" class="p-5 mb-3"  style="color:white;border: 0px solid #343a40;box-shadow:0.5em 0.5em 0.4em black; border-radius: 20px; width: 40%; margin-left: 30%;background:url({% static 'Images/black-texture.jpg' %});">
+  {% csrf_token %}
+<div id="div_id_username" class="form-group"> <label for="id_username" class=" requiredField">
+              Username</label> <div class=""> <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" class="textinput textInput form-control" required="" id="id_username"> <small id="hint_id_username" class="form-text text-muted">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small> </div> </div> <div id="div_id_password1" class="form-group"> <label for="id_password1" class=" requiredField">
+              Password </label> <div class=""> <input type="password" name="password1" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password1"> <small id="hint_id_password1" class="form-text text-muted"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></small> </div> </div> <div id="div_id_password2" class="form-group"> <label for="id_password2" class=" requiredField">
+              Password confirmation </label> <div class=""> <input type="password" name="password2" autocomplete="new-password" class="textinput textInput form-control" required="" id="id_password2"> <small id="hint_id_password2" class="form-text text-muted">Enter the same password as before, for verification.</small> </div> </div>
+
+  <button type="submit" class="btn btn-success" style="margin-left: 40%;">Kaydol</button>
+</form>
 {% endblock %}

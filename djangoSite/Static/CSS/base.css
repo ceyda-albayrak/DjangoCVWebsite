@@ -1,9 +1,5 @@
-body {
-    background-color: #f2ecff;
-}
 .navbar{
-    background-color: blueviolet;
-}
-h3,h5{
-    color: white;
+    background: #2989d8;
+    background: -webkit-gradient(linear,left top,right top,from(#2989d8),color-stop(52%,#b524b5),to(#f4af84));
+    background: linear-gradient(to right,#2989d8 0,#b524b5 52%,#f4af84 100%);
 }

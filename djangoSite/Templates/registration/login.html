@@ -1,13 +1,63 @@
-{% extends 'base.html' %}
-{% load crispy_forms_tags %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
-<form method="POST" class="m-5">
-    <h1 class="text-center">Giriş Yap</h1>
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-success">Giriş Yap</button>
-    <a style="margin-left: 80%;" href="">Şifremi Unuttum</a>
-</form>
-{% endblock content %}
+
+<body style="background:url({% static 'Images/black-texture.jpg' %})">
+    <div class="title mb-3" style="margin-top: 6%;">
+<h1 class="text-center" style="color: white;">GİRİŞ YAP</h1></div>
+  <form method="POST"  style="border: 0px solid #343a40;box-shadow:0.5em 0.5em 0.4em black; border-radius: 20px; width: 40%; margin-left: 30%;background:url({% static 'Images/black-texture.jpg' %});">
     
+    {% csrf_token %}
+    <img
+      src="{% static 'Images/key-login.png' %}"
+      style="margin-left: 35%; color: white;"
+      class="mb-2 mt-3"
+    />
+    <div id="div_id_username" class="form-group">
+      <label
+        for="id_username"
+        class="requiredField"
+        style="margin-left: 28%; float: left"
+        > <img src="{% static 'Images/user-login.png' %}" class="mr-1" /> 
+      </label>
+      <div class="">
+        <input
+          type="text"
+          name="username"
+          autofocus=""
+          autocapitalize="none"
+          autocomplete="username"
+          maxlength="150"
+          class="textinput textInput form-control"
+          required=""
+          id="id_username"
+          style="width: 30%; margin-left: 30%"
+        />
+      </div>
+    </div>
+    <div id="div_id_password" class="form-group">
+      <label
+        for="id_password"
+        class="requiredField"
+        style="margin-left: 28%; float: left"
+      >
+        <img src="{% static 'Images/padlock.png' %}" class="mr-1" />
+      </label>
+      <div class="">
+        <input
+          type="password"
+          name="password"
+          autocomplete="current-password"
+          class="textinput textInput form-control"
+          required=""
+          id="id_password"
+          style="width: 30%; margin-left: 30%"
+        />
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success mb-3" style="margin-left: 41%">
+      Giriş Yap
+    </button>
+  </form>
+</body>
+
+{% endblock content %}
