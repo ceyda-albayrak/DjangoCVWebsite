@@ -1,5 +1,52 @@
-{% extends 'base.html' %}
-{% block content %}
-dsffhgjghfg
+{% extends 'base.html' %} {% block content %} {% load static %}
+<head>
+  <link href="{% static 'CSS/home.css' %}" rel="stylesheet" />
+</head>
+<body style="background: url({% static 'Images/5026563.jpg'%})">
+  <a href="{% url 'blog' %}" id="button">
+    <span>
+      <img src="{% static 'Images/dikkat.png' %}" />CV Oluştururken Dikkat
+      Edilmesi Gerekenler</span
+    >
+  </a>
+  <audio preload="auto">
+    <source
+      src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.mp3?raw=true"
+      type="audio/mp3"
+    />
+    <source
+      src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.ogg?raw=true"
+      type="audio/ogg"
+    />
+  </audio>
+  {% if user.is_authenticated %}
+  <a href="{% url 'create' %}" id="button">
+    <span> <img src="{% static 'Images/cv-icon.png' %}" /> CV Oluştur</span>
+  </a>
+  <audio preload="auto">
+    <source
+      src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.mp3?raw=true"
+      type="audio/mp3"
+    />
+    <source
+      src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.ogg?raw=true"
+      type="audio/ogg"
+    />
+  </audio>
+  {% else %}
+  <a href="{% url 'login' %}" id="button" onclick="location.href=">
+    <span> <img src="{% static 'Images/cv-icon.png' %}" /> CV Oluştur</span>
+  </a>
+  <audio preload="auto">
+    <source
+      src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.mp3?raw=true"
+      type="audio/mp3"
+    />
+    <source
+      src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.ogg?raw=true"
+      type="audio/ogg"
+    />
+  </audio>
 
-{% endblock content %}
+  {% endif %} {% endblock content %}
+</body>

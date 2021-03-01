@@ -39,7 +39,7 @@
                   <img src="{% static 'Images/user.png' %}"/> {{user.username | title}}
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="{% url 'password_reset' %}"><img src="{% static 'Images/key.png' %}"/> Parolayı Değiştir</a></li>
+                  <li><a class="dropdown-item" href="{% url 'password_change' %}"><img src="{% static 'Images/key.png' %}"/> Parolayı Değiştir</a></li>
                   <li><a class="dropdown-item" href="{% url 'logout' %}"><img src="{% static 'Images/logout.png' %}"/> Çıkış Yap</a></li>
                   
                 </ul>

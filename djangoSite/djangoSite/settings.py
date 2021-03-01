@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'djangoSite',
     'Accounts',
     'Blogs',
-    'News',
     'CurriculumVitae',
     'phone_field',
     'crispy_forms',
