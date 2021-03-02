@@ -18,16 +18,16 @@ from django.urls import path,include
 from django.conf.urls import url
 from django.contrib import admin
 from rest_framework.urlpatterns import format_suffix_patterns
-from Blogs.views import BlogListView
-
-
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('Accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('',include('Blogs.urls')),
+    path('blogdetail/',include('Blogs.urls')),
     path('api/',include('API.urls')),
-]
+    path('',include('CurriculumVitae.urls')),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns = format_suffix_patterns(urlpatterns)

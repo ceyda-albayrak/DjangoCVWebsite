@@ -2,8 +2,8 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
-from Blogs.models import Blog
-from .serializers import BlogSerializer,MyTokenObtainPairSerializer
+from CurriculumVitae.models import CV
+from .serializers import CVSerializer,MyTokenObtainPairSerializer
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated,AllowAny
 from rest_framework.views import APIView
@@ -31,49 +31,49 @@ class RegisterView(generics.CreateAPIView):
   
 
 @api_view(['GET', 'POST'])
-def blog_list(request):
+def cv_list(request):
     """
     List all code snippets, or create a new snippet.
     """
     if request.method == 'GET':
-        blog = Blog.objects.all()
-        serializer = BlogSerializer(blog, many=True)
+        cv = CV.objects.all()
+        serializer = CVSerializer(cv, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        serializer = BlogSerializer(data=request.data)
+        serializer = CVSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'POST','DELETE'])
-def blog_detail(request, pk):
+def cv_detail(request, pk):
     """
     Retrieve, update or delete a code snippet.
     """
     try:
-        blog = Blog.objects.get(pk=pk)
-    except Blog.DoesNotExist:
+        cv = CV.objects.get(pk=pk)
+    except CV.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        serializer = BlogSerializer(blog)
+        serializer = CVSerializer(cv)
         return Response(serializer.data)
 
     elif request.method == 'PUT':
-        serializer = BlogSerializer(blog, data=request.data)
+        serializer = CVSerializer(cv, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'POST':
-        serializer = BlogSerializer(data=request.data)
+        serializer = CVSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-        blog.delete()
+        cv.delete()
         return Response('Deleted!',status=status.HTTP_204_NO_CONTENT)

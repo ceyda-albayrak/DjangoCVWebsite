@@ -7,6 +7,6 @@ urlpatterns = [
     path('login/', views.LoginView.as_view()),
     path('register/', views.RegisterView.as_view()),
     path('token/', views.MyObtainTokenPairView.as_view()),
-    path('blog-list/', views.blog_list),
-    path('blog-detail/<int:pk>', views.blog_detail),
+    path('cv-list/', views.cv_list),
+    path('cv-detail/<int:pk>', views.cv_detail),
 ]

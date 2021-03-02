@@ -11,7 +11,7 @@
                 <form action="" method="post" class=" row g-3 needs-validation" id="registervalidation" novalidate>
                     {% csrf_token %}
                     
-                    <select name="user" required="" id="id_user" value="{{user.username}}">
+                    <select name="user" required="" id="id_user" value="{{object.username}}">
                         <option value="1">{{user.username}}</option>
                       
                         
@@ -21,133 +21,133 @@
                     <div class="col-md-12">
                         <label class="control-label">Resim: </label>
                         <div class="image">
-                            <input type="file" id="file" onchange=(fileValidation()) class="form-control"  name="image" id="id_image" required />
+                            <input type="file" id="file" onchange=(fileValidation()) class="form-control"  value="{{object.image}}" name="image" id="id_image" required />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">İsim: </label>
-                        <input type="text" class="form-control" id="validationCustom01"  name="name" id="id_name" required>
+                        <input type="text" class="form-control" id="validationCustom01"  name="name" id="id_name" value="{{object.name}}" required>
                             <div class="invalid-feedback">
                                 Lütfen isminizi girin.
                             </div>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom02" class="form-label">Soyisim: </label>
-                        <input type="text" class="form-control"  name="surname" id="id_surname" required>
+                        <input type="text" class="form-control"  name="surname" id="id_surname" value="{{object.surname}}" required>
                             <div class="invalid-feedback">
                                 Lütfen soyisminizi girin.
                             </div>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">Doğum Yeri: </label>
-                        <input type="text" class="form-control"  name="placeofbirth" id="id_placeofbirth"  required>
+                        <input type="text" class="form-control"  name="placeofbirth" id="id_placeofbirth" value="{{object.placeofbirth}}"  required>
                             <div class="invalid-feedback">
                                 Lütfen doğum yerinizi girin.
                             </div>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">Doğum Tarihi: </label>
-                        <input class="form-control" type="date" value="2011-08-19"  name="dateofbirth" id="id_dateofbirth">
+                        <input class="form-control" type="date" value="2011-08-19"  name="dateofbirth" value="{{object.dateofbirth}}" id="id_dateofbirth">
                     </div>
                     <div class="col-md-6">
                         <label for="phonenum">Phone Number (format: xxx xxx xxxx):</label><br/>
-                        <input class="form-control" type="tel" pattern="^\(d{3})\d{3}-d{4}$"  name="phone" id="id_phone" required >
+                        <input class="form-control" type="tel" pattern="^\(d{3})\d{3}-d{4}$"  name="phone" value="{{object.phone}}" id="id_phone" required >
                             <div class="invalid-feedback">
                                  Telefon Numaranızı girin.
                             </div>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom05" class="form-label">Email:</label>
-                        <input class="form-control" type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  name="email" id="id_email" required>
+                        <input class="form-control" type="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  name="email" value="{{object.email}}" id="id_email" required>
                             <div class="invalid-feedback">
                                 Mail adresinizi girin.
                             </div>
                     </div>
                     <div class="col-md-12">
                         <label class="form-label">Adres:</label>
-                        <input type="text" class="form-control"  name="address" id="id_address" required >
+                        <input type="text" class="form-control"  name="address" id="id_address" value="{{object.address}}" required >
                             <div class="invalid-feedback">
                                  Lütfen adresinizi girin.
                             </div>
                     </div>
                     <div class="col-md-12">
                         <label for="website">Website:</label>
-                        <input class="form-control" type="url" name="website" id="id_website" placeholder="https://example.com" pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?">
+                        <input class="form-control" type="url" name="website" id="id_website" placeholder="https://example.com" value="{{object.website}}" pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?">
                     </div>
                     <div class="col-md-6">
                         <label>Medeni Durum:</label>
-                        <input type="text" class="form-control" name="maritalstatu" id="id_maritalstatu" required>
+                        <input type="text" class="form-control" name="maritalstatu" id="id_maritalstatu" value="{{object.maritalstatu}}" required>
                     </div>
                     <div class="col-md-6">
                         <label>Askerlik Durumu:</label>
-                        <input type="text" class="form-control" name="militarystatu" id="id_militarystatu" required>
+                        <input type="text" class="form-control" name="militarystatu" id="id_militarystatu" value="{{object.militarystatu}}" required>
                     </div>
                     <div class="col-md-6">
                         <label>Sürücü Belgesi:</label>
-                        <input type="text" class="form-control" name="driverlicense" id="id_driverlicense" required>
+                        <input type="text" class="form-control" name="driverlicense" id="id_driverlicense" value="{{object.driverlicense}}" required>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">Meslek: </label>
-                        <input type="text" class="form-control" name="job" id="id_job" required>
+                        <input type="text" class="form-control" name="job" id="id_job" value="{{object.job}}" required>
                             <div class="invalid-feedback">
                                 Lütfen mesleğinizi girin.
                             </div>
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Yabancı Dil(Seviyenizi Belirtin:Temel,Orta,İleri): </label>
-                        <input type="text" class="form-control" name="language" id="id_language" required>
+                        <input type="text" class="form-control" name="language" id="id_language" value="{{object.language}}" required>
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Deneyim: </label>
-                        <input type="text" class="form-control" name="lgdegree" id="id_lgdegree" required>
+                        <input type="text" class="form-control" name="lgdegree" id="id_lgdegree" value="{{object.lgdegree}}" required>
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Hobi: </label>
-                        <input type="text" class="form-control" name="hobby" id="id_hobby" required>
+                        <input type="text" class="form-control" name="hobby" id="id_hobby" value="{{object.hobby}}" required>
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Kariyer Hedefi: </label>
-                        <input type="text" class="form-control" name="careerobjective" id="id_careerobjective" required>
+                        <input type="text" class="form-control" name="careerobjective" id="id_careerobjective" value="{{object.careerobjective}}" required>
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Üniversite: </label>
-                        <input type="text" class="form-control" name="university" id="id_university" required>
+                        <input type="text" class="form-control" name="university" id="id_university" value="{{object.university}}" required>
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Bölüm: </label>
-                        <input type="text" class="form-control" name="department" id="id_department" required>
+                        <input type="text" class="form-control" name="department" id="id_department" value="{{object.department}}" required>
                     </div>
                     <div class="col-md-6">
                         <label for="example-month-input" class="col-form-label">Başlama Tarihi:</label>
-                        <input class="form-control" type="date" value="2011-08-09" name="unistartdate" id="id_unistartdate">
+                        <input class="form-control" type="date" value="2011-08-09" name="unistartdate" id="id_unistartdate" value="{{object.unistartdate}}">
                     </div>
                     <div class="col-md-6">
                         <label for="example-month-input" class="col-form-label">Bitiş Tarihi:</label>
-                        <input class="form-control" type="date" value="2011-08-09" name="uniduedate" id="id_uniduedate">
+                        <input class="form-control" type="date" value="2011-08-09" name="uniduedate" id="id_uniduedate" value="{{object.id_uniduedate}}"> 
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Lise: </label>
-                        <input type="text" class="form-control" name="highschool" id="id_highschool" required>
+                        <input type="text" class="form-control" name="highschool" id="id_highschool" required value="{{object.highschool}}">
                     </div>
                     <div class="col-md-6">
                         <label for="example-month-input" class="col-form-label">Başlama Tarihi:</label>
-                        <input class="form-control" type="date" value="2011-08-09" name="highstartdate" id="id_highstartdate">
+                        <input class="form-control" type="date" value="2011-08-09" name="highstartdate" id="id_highstartdate" value="{{object.highstartdate}}">
                     </div>
                     <div class="col-md-6">
                         <label for="example-month-input" class="col-form-label">Bitiş Tarihi:</label>
-                        <input class="form-control" type="date" value="2011-08-09" name="highduedate" id="id_highduedate">
+                        <input class="form-control" type="date" value="2011-08-09" name="highduedate" id="id_highduedate" value="{{object.highduedate}}">
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">Referans İsim Soyisim: </label>
-                        <input type="text" class="form-control" name="referencename" id="id_referencename">
+                        <input type="text" class="form-control" name="referencename" id="id_referencename" value="{{object.referencename}}">
                     </div>
                     <div class="col-md-6">
                         <label for="phonenum">Phone Number (format: xxx xxx xxxx):</label><br/>
-                        <input class="form-control" type="tel" pattern="^\d{3}\d{3}\d{4}$" name="referencephone" id="id_referencephone">
+                        <input class="form-control" type="tel" pattern="^\d{3}\d{3}\d{4}$" name="referencephone" id="id_referencephone" value="{{object.referencephone}}">
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">Yetenekler: </label>
-                        <input type="text" class="form-control" name="ability" id="id_ability" required>
+                        <input type="text" class="form-control" name="ability" id="id_ability" value="{{object.ability}}" required>
                     </div>
                   
                     <div class="col-12">

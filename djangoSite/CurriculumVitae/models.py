@@ -1,11 +1,11 @@
 from django.db import models
 from phone_field import PhoneField
-from django.contrib.auth import get_user_model
 from django.urls import reverse
 
 # Create your models here.
 class CV(models.Model):
-    image=models.ImageField(null=True, blank=True)
+    user=models.ForeignKey('auth.User', on_delete=models.CASCADE,)
+    image=models.ImageField(null=True, blank=True,upload_to='media/')
     name=models.CharField(max_length=100,verbose_name="İsim")
     surname=models.CharField(max_length=100,verbose_name="Soyisim")
     placeofbirth=models.CharField(max_length=100,verbose_name="Doğum Yeri")
@@ -17,12 +17,13 @@ class CV(models.Model):
     phone=PhoneField(blank=True, verbose_name="Telefon")
     email=models.EmailField(max_length=254,unique=True)
     address=models.TextField()
-    website=models.URLField()
+    website=models.URLField(blank=True)
     language=models.CharField(max_length=100,verbose_name="Dil")
-    lgdegree=models.CharField(max_length=50,verbose_name="Seviye")
+    lgdegree=models.CharField(max_length=50,verbose_name="Deneyim")
     hobby=models.TextField()
     careerobjective=models.TextField(verbose_name="Kariyer Hedefi")
     university=models.CharField(max_length=250)
+    department=models.CharField(max_length=250)
     unistartdate=models.DateField(verbose_name="Başlama Tarihi")
     uniduedate=models.DateField(verbose_name="Bitiş Tarihi")
     highschool=models.CharField(max_length=250)
@@ -35,5 +36,6 @@ class CV(models.Model):
     def __str__(self):
         return self.name+self.surname
 
-    def get_user_model (self):
-        return reverse('cv.detail',args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse("view-cv", kwargs={"pk": self.pk})
+       

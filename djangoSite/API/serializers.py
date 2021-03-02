@@ -1,13 +1,13 @@
 from rest_framework import serializers
-from Blogs.models import Blog
+from CurriculumVitae.models import CV
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
 
-class BlogSerializer(serializers.ModelSerializer):
+class CVSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Blog
+        model = CV
         # fields = ('alis','satis') // belirtilen kisimlari ceker.
         # fields = '__all__' // tum kisimlari ceker.
         fields = '__all__'

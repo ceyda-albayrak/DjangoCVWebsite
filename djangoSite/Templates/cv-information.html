@@ -1,5 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
-dsffhgjghfg
+{% load static %}
+<head>
+    <link href="{% static 'CSS/cv-information.css' %}" rel="stylesheet">
+</head>
+<main>
+    <div class="triangle"></div>
+    <div class="triangle-2"></div>
+    <div class="triangle-3"></div>
+    <div class="container">
+    {% for blog in object_list %} 
+    
+      <article>
+      <h1>CV Hazırlarken Dikkat Edilmesi Gerekenler</h1>
+     
+      <ul>
+      <li>Özgeçmişinizi sağlıklı bir şekilde oluşturmadan önce, iş aramaya veya iş başvurusu yapmamakta faydası vardır. Güçlü bir CV (özgeçmiş), ön seçim ve mülakat aşamasında sizin işe alım sürenizde kesinlikle destek olacaktır.</li>
+      <li>Kısa tutun genellikle maksimum iki sayfa. </li>
+      <li>Yaş, din ve cinsiyet gibi gereksiz kişisel ayrıntılardan kaçının.</li>
+      <li>İlgili kişinin dikkatine gibi cümleler kullanmayın – fiillerle başlayan cümleler kurun.</li>
+      <li>Kariyer geçmişinizi ters kronolojik sırayla listeleyin. (1999,2003,2007,2011… yerine 2011,2007,2003,1999 en başa en yakın tarihte çalıştığınız kurumları yazın) Mümkünse geçmişte çalıştığınız pozisyon veya deneyimleri ekleyin.</li>
+      <li>Başarı, ödül ve sorumluluklar için belirtici işaretler kullanın ( ! + ) – Başvurduğunuz işle alâkalı olmadıkları sürece, geçmişte çalıştığınız kurumlardaki rol-pozisyonları hariç tutmaya çalışın</li>
+      <li>Bilgisayar becerileri, dil becerileri vb. herhangi bir ek eğitim ekleyin.</li>
+      <li>Hobilerinizi ve ilgi alanınızı kısa tutun.</li>
+      <li>Mümkün olduğunca referanslarınıza tanıdık akraba (aynı soy ismi taşıyan) eklemeyin – iletişim bilgilerinizi abartıcı bir şekilde eklemeyin. (Örn: Tel, GSM, Mail)</li>
+      <li>Yazım hatalarını kontrol edin. Özgeçmişinizin hatasız olduğunu düşünüyorsanız bile, bir arkadaşınıza bu cv’yi incelemesini rica edin.</li>
+      <li>Özgeçmişinize neler eklemeniz gerektiği konusunda daha önemli ipuçları için, işe alım görevlilerinin veya işverenlerin özgeçmişinizde aradıkları dokuz maddeyi kontrol edin. </li>
+     
+
+    </ul>
+    <p>Ön görüşme ve Mülakat aşamasına geçme şansınızı artıracaksanız, özgeçmişinizin okuyucuyu(yetkili kişiyi) saniyeler içinde etkilemesi gerekir. İşe alım görevlileri tam anlamıyla tek bir pozisyon için yüzlerce başvuruyu inceleyebilir ve bazen adayların bir mülakata girip girmeyeceğine karar vermeden önce özgeçmişlerini inceleme zamanına sahip olurlar. Hızlı bir etki yaratmak için; özgeçmişinizin aşağıdaki bilgileri en özlü biçimde iletmeniz gerekecektir.</p><br/>
+    <p>Pozisyonlar ve sorumluluklar: Özgeçmişinizi, başvurduğunuz her farklı işe göre uyarlamanız gerekir, bu nedenle, iş unvanlarını ve özgeçmişinize eklediğiniz sorumlulukların, sunulan iş için alakalı (doğrudan bir eşleşme olmasa bile) önemlidir. Önceki pozisyonlarınızı açıklığa kavuşturmanız gerekse de, özgeçmişinizin sorumluluklarınızın sadece bir listesinden fazlasını sunması önemlidir.</p><br/>
+    <p>Deneyim: Özgeçmişiniz, ilgili kurum tarafından doğru kişiyi bulmak için incelenecektir. Tek bir görevde en az altı ay çalışmış olmanız bazen sıkıntılı sonuçlar doğurabilir. Başvuruda bulunmakta olduğunuz işle tutarlı ve alakalı olarak karşılaştığından emin olun. Değer kattığınız ve yüksek profilli herhangi bir projeye yaptığınız desteği özellikle belirtin.</p><br/>
+    <p>Beceriler: Kazanılan ve size ait olan tüm becerilerinizi, önceki kurumlarda çalıştığınız pozisyonlarda çalıştığınız içeriklere eklediğinizden emin olun. Becerileriniz tecrübenizi tamamlayacak ve nihai olarak sunulan iş için uygunluğunuzu gösterecektir.</p><br/>
+    <p>Sonuçlar ve Başarılar: İşe alım yöneticileri, geçmişte elde etmiş olduğunuz başarı sonuçlarını görmekten hoşlanırlar; bu nedenle, örneğin eski kurumunuzda Satış Yöneticisi olarak çalışırken hedefinizin üstünde bir başarı elde ettiyseniz, hedeflerinizi miktarlar veya yüzdeler olarak belirttiğinizden ve aşırı başarınızı mutlaka belirtin. </p><br/>
+    <p>Eğitim: İlgili eğitim sertifikalarınızı, özellikle seçim kriterlerinde önemli veya istenen bir eğitim içeriği olduğunda mutlaka belirtin. Ayrıntıları doğru bir şekilde aldıktan sonra CV’nizin bir işe alım müdürü veya işe alım personelinin ilgisini hızlı ve etkili bir şekilde çekmesi halinde CV’nize iyi not bırakması demektir. Bunu yapmak için, aşağıdaki ayrıntılara dikkat ettiğinizden emin olun. </p><br/>
+    <p>Okuması kolay: Özgeçmişinizin düzeninin açıkça ve tutarlı olduğundan emin olun, yalnızca bir yazı tipini kullanın (vurgulamak için kalın yazı kullanılabilir). Başıboş olmayan cümleler yerine becerileri, başarıları, sorumlulukları vb. Özetlemek için madde işareti kullanın. Yazım denetimi veya dil bilgisi hatalarından kaçınılmalıdır</p><br/>
+    <p>Tutarsızlık: Özgeçmişinizin kronolojik sırayla ters gittiğinden emin olun ve olabildiğince özlü bir şekilde yazılmış olduğuna dikkat edin. İş geçmişinizde açıklanamayan boşluklar veya eklediğiniz sorumluluklar veya kazanımlardaki tutarsızlıklarınızın olmadığından emin olun.</p><br/>
+    <p>Dil Kullanımı: Özgeçmişiniz boyunca önemli VURGULAYICI anahtar kelimeler eklediğinizden emin olun. Bunu yapmak için, iş tanımını tarayın ve dilinizin okunabilir olduğundan emin olun. Bu, sizinle pozisyonun gereklilikleri arasındaki okuyucu zihninde bir bağlantı oluşturacaktır. Aşırı terimden kaçının ve bunu okuyan kişinin teknik veya sektör uzmanı olmayabileceğine dikkat edin; Ancak, nelere dikkat etmeleri gerektiğini bileceklerdir </p><br/>
+    <p>Biçimlendirme: Özgeçmişinizin, ilgili kişinin kolayca okuyabileceği bir şekilde hazırlandığından emin olun – hiçbir işe alma yöneticisi, bir özgeçmişi görüntülemek için büyük bir dosya indirmek istemez. Özgeçmişinizi kaydettiğinizde, kaydettiğiniz mail başlığına adınızı (ör. Ahmet KAVAL-CV) eklediğinizden emin olun. Ayrıca, ilgili kişinin posta kutusunun tıkanmasını önlemek için başvurunuzu 1 MB’ın altında tutmanız ince bir noktadır. Birçok yeteneğe ve deneyime sahip olabilirsiniz. Ancak bu özelliklerinizi özgeçmişinizde açıkça belirtmiyorsanız, yeni bir pozisyonda çalışmak için ilk engel olarak düşünebilirsiniz. Örneğin: İstenilen iş pozisyonu satış pazarlama elemanı. Fakat sizde aynı zamanda muhasebe bilgisi de var. Bu özelliğinizi de çok fazla göze batmayacak şekilde belirtmenizin faydası olacaktır.</p><br/>
+   
+  
+  
+  
+  </article>
+    {% endfor %}
+    </div>
+</main>
+
+    
+    
 
 {% endblock content %}
