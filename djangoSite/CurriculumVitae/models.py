@@ -32,6 +32,8 @@ class CV(models.Model):
     referencename=models.CharField(max_length=100,verbose_name="Referans İsim Soyisim",blank=True)
     referencephone=PhoneField(blank=True, verbose_name="Referans Telefon")
     ability=models.TextField(verbose_name="Yetenekler")
+    github=models.CharField(max_length=250,blank=True)
+    linkedin=models.CharField(max_length=250,blank=True)
 
     def __str__(self):
         return self.name+self.surname

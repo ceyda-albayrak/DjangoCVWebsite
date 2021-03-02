@@ -50,8 +50,8 @@
                         <input class="form-control" type="date" value="2011-08-19"  name="dateofbirth" id="id_dateofbirth">
                     </div>
                     <div class="col-md-6">
-                        <label for="phonenum">Phone Number (format: xxx xxx xxxx):</label><br/>
-                        <input class="form-control" type="tel" pattern="^\(d{3})\d{3}-d{4}$"  name="phone" id="id_phone" required >
+                        <label for="phonenum">Phone Number (format: (xxx) xxx-xxxx):</label><br/>
+                        <input class="form-control" type="tel" pattern="^\(d{3})\ d{3}-d{4}$"  name="phone" id="id_phone" required >
                             <div class="invalid-feedback">
                                  Telefon Numaranızı girin.
                             </div>
@@ -73,6 +73,14 @@
                     <div class="col-md-12">
                         <label for="website">Website:</label>
                         <input class="form-control" type="url" name="website" id="id_website" placeholder="https://example.com" pattern="[Hh][Tt][Tt][Pp][Ss]?:\/\/(?:(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)(?:\.(?:[a-zA-Z\u00a1-\uffff0-9]+-?)*[a-zA-Z\u00a1-\uffff0-9]+)*(?:\.(?:[a-zA-Z\u00a1-\uffff]{2,}))(?::\d{2,5})?(?:\/[^\s]*)?">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="website">Github:</label>
+                        <input class="form-control"  name="github" id="id_github" placeholder="github.com/example/">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="website">LinkedIn:</label>
+                        <input class="form-control"  name="linkedin" id="id_linkedin" placeholder="linkedin.com/in/example/" >
                     </div>
                     <div class="col-md-6">
                         <label>Medeni Durum:</label>
@@ -142,7 +150,7 @@
                         <input type="text" class="form-control" name="referencename" id="id_referencename">
                     </div>
                     <div class="col-md-6">
-                        <label for="phonenum">Phone Number (format: xxx xxx xxxx):</label><br/>
+                        <label for="phonenum">Phone Number (format: (555) 555-5555):</label><br/>
                         <input class="form-control" type="tel" pattern="^\d{3}\d{3}\d{4}$" name="referencephone" id="id_referencephone">
                     </div>
                     <div class="col-md-12">
