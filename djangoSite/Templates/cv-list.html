@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <link href="{% static 'CSS/cv-list.css' %}" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<body style="background: url({% static 'Images/5026563.jpg'%})">
+
+{% for cv in object_list %}
+{% if user == cv.user %}
+ 
+<ul class="tilesWrap">
+	<li>
+		<h2>{{cv.id}}</h2>
+		<h3>CV {{cv.name}} {{cv.surname}}</h3>
+		<p>
+			Lorem Ipsum is simply dummy text of the printing and typesetting   
+			industry. Lorem Ipsum has been the industry's standard dummy text ever 
+			since the 1500s.
+		</p>
+		<a type="button" class="btn btn-success" href="{% url 'view-cv' cv.id %}">İncele</a>
+        <a type="button" class="btn btn-warning" href="{% url 'update-cv' cv.id %}">Güncelle</a>
+        <a type="button" class="btn btn-danger" href="{% url 'delete-cv' cv.id %}">Sil</a>
+	</li>
+</ul>
+
+{% endif %}
+{% endfor %}
+</body>
+{% endblock content %}

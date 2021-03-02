@@ -5,7 +5,7 @@
 <body style="background: url({% static 'Images/5026563.jpg'%})">
   <a href="{% url 'blog' %}" id="button">
     <span>
-      <img src="{% static 'Images/dikkat.png' %}" />CV Oluştururken Dikkat
+      <img src="{% static 'Images/dikkat.png' %}" /> CV Oluştururken Dikkat
       Edilmesi Gerekenler</span
     >
   </a>
@@ -33,8 +33,21 @@
       type="audio/ogg"
     />
   </audio>
+  <a  id="button" href="{% url 'cv-list' %}" >
+    <span> <img src="{% static 'Images/cv-icon.png' %}" /> CV Görüntüle</span>
+  </a>
+  <audio preload="auto">
+    <source
+      src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.mp3?raw=true"
+      type="audio/mp3"
+    />
+    <source
+      src="https://github.com/nclud/2011.beercamp.com/blob/gh-pages/audio/inception.ogg?raw=true"
+      type="audio/ogg"
+    />
+  </audio>
   {% else %}
-  <a href="{% url 'login' %}" id="button" onclick="location.href=">
+  <a href="{% url 'login' %}" id="button">
     <span> <img src="{% static 'Images/cv-icon.png' %}" /> CV Oluştur</span>
   </a>
   <audio preload="auto">

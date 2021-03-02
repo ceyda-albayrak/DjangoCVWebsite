@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <link href="{% static 'CSS/viewcv.css' %}" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+</head>
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<div class="resume">
+   <div class="resume_left" >
+     <div class="resume_profile">
+       <img>{{object.image}}
+     </div>
+     <div class="resume_content">
+       <div class="resume_item resume_info">
+         <div class="title">
+           <p class="bold">{{object.name | title}} {{object.surname | title}}</p>
+           <p class="bold">{{object.job | title}}</p>
+         </div>
+         <ul>
+           <li>
+            <div class="icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+             <div class="data" >
+                Adres:{{object.address | title}}
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fas fa-mobile-alt"></i>
+             </div>
+             <div class="data">
+                {{object.phone}}
+             </div>
+           </li>
+           <li>
+            <div class="icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="data">
+               {{object.email}}
+            </div>
+          </li>
+         </ul>
+       </div>
+       <div class="resume_item resume_skills">
+         <div class="title">
+           <p class="bold">Yetenekler</p>
+         </div>
+         <ul>
+           <li>
+             <div class="skill_name">
+               {{object.ability}}           
+             </div>
+           </li>
+         </ul>
+       </div>
+       <div class="resume_item resume_social">
+         <div class="title">
+           <p class="bold">Sosyal Medya Hesapları</p>
+         </div>
+         <ul>
+           <li>
+             <div class="icon">
+               <i class="fab fa-github"></i>
+             </div>
+             <div class="data">
+               <p class="semi-bold">Github</p>
+               <p>github</p>
+             </div>
+           </li>
+           <li>
+             <div class="icon">
+               <i class="fab fa-linkedin"></i>
+             </div>
+             <div class="data">
+               <p class="semi-bold">Linkedin</p>
+               <p>linkedin</p>
+             </div>
+           </li>
+           <li>
+            <div class="icon">
+              <i class="fab fa-weebly"></i>
+            </div>
+            <div class="data">
+               {{object.website}}
+            </div>
+          </li>
+         </ul>
+       </div>
+     </div>
+  </div>
+  <div class="resume_right">
+    <div class="resume_item resume_about">
+        <div class="title">
+           <p class="bold">Kariyer Hedefi</p>
+         </div>
+        <p>{{object.careerobjective}}</p>
+    </div>
+    <div class="resume_item ">
+        <div class="title">
+           <p class="bold">Kişisel Bilgiler</p>
+         </div>
+        <ul>
+            <li>
+               
+                <p class="">Doğum Tarihi: {{object.dateofbirth}}</p> 
+                <p class="">Doğum Yeri: {{object.placeofbirth}}</p> 
+                <p class="">Medeni Hal: {{object.maritalstatu}}</p> 
+                <p class="">Sürücü Belgesi: {{object.driverlicense}}</p> 
+                
+            </li>
+            
+        </ul>
+    </div>
+    <div class="resume_item resume_work">
+        <div class="title">
+           <p class="bold">İş Deneyimi</p>
+         </div>
+        <ul>
+            <li>
+                <div class="info">
+                     <p class="semi-bold"> {{object.lgdegree}}</p> 
+                    
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="resume_item resume_education">
+      <div class="title">
+           <p class="bold">Eğitim</p>
+         </div>
+      <ul>
+            <li>
+                <div class="date">{{object.unistartdate}}-{{object.uniduedate}}</div> 
+                <div class="info">
+                     <p class="semi-bold">{{object.department}} ({{object.university}})</p> 
+                 
+                </div>
+            </li>
+            <li>
+              <div class="date">{{object.highstartdate}}-{{object.highduedate}}</div>
+              <div class="info">
+                     <p class="semi-bold">{{object.highschool}}</p> 
+                 
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="resume_item resume_hobby">
+        <div class="title">
+             <p class="bold">Yabancı Dil</p>
+           </div>
+         <ul>
+           <li>{{object.language}}</li>
+        </ul>
+      </div>
+      <div class="resume_item resume_hobby">
+        <div class="title">
+             <p class="bold">Referans</p>
+           </div>
+         <ul>
+           <li>{{object.referencename}} : {{object.referencephone}}</li>
+        </ul>
+      </div>
+    <div class="resume_item resume_hobby">
+      <div class="title">
+           <p class="bold">Hobby</p>
+         </div>
+       <ul>
+         <li>{{object.hobby}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

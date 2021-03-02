@@ -1,3 +1,3 @@
 from django.db import models
-from Blogs.models import Blog
+from CurriculumVitae.models import CV
 # Create your models here.
